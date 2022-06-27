@@ -23,6 +23,11 @@ button{
     margin: auto;
 }
 
+.disabled-btn{
+    color: gray;
+}
+
+
 #counter{
     display: flex;
     height: 100px;
@@ -34,3 +39,12 @@ button{
     margin: 0 20px;
     font-size: 16pt;
 }
+
+.negative {
+    color: red;
+}
+
+.positive {
+}
+
+.

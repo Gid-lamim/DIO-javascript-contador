@@ -8,18 +8,52 @@ var currentNumberString = currentNumberWrapper.innerText;
 //to be able to use it, we need to parse it into an integer.
 var currentNumber = parseInt(currentNumberString , 10);
 
-document.getElementById("addButton").addEventListener("click", increment);
-document.getElementById("subtractButton").addEventListener("click", decrement);
+
+var addBtn = document.getElementById("addButton");
+var subtractBtn = document.getElementById("subtractButton");
+
+addBtn.addEventListener("click", increment);
+subtractBtn.addEventListener("click", decrement);
+   
+function enableBtn(){
+    if (currentNumber > 9){
+        addBtn.className="disabled-btn";
+    } else {
+        addBtn.className="";
+    }
+
+    if (currentNumber < -9){
+        subtractBtn.className="disabled-btn";
+    } else {
+        subtractBtn.className="";
+    }
+    
+}
+
+function isNegative(){
+    if (currentNumber < 0) {
+        currentNumberWrapper.className = "negative";
+    } else {
+        currentNumberWrapper.className = "positive";
+    }
+}
 
 function increment(){
-    currentNumber = currentNumber + 1;
-    currentNumberWrapper.innerHTML = currentNumber;
+    if (currentNumber < 10){
+        currentNumber = currentNumber + 1;
+        currentNumberWrapper.innerHTML = currentNumber;
+    }  
+    isNegative();
+    enableBtn();
 }
 
 function decrement(){
-    currentNumber = currentNumber - 1;
-    currentNumberWrapper.innerHTML = currentNumber;
-    
+    if (currentNumber > -10){
+        currentNumber = currentNumber - 1;
+        currentNumberWrapper.innerHTML = currentNumber;
+    }  
+    isNegative();
+    enableBtn();
 }
 
 
