@@ -8,6 +8,9 @@ var currentNumberString = currentNumberWrapper.innerText;
 //to be able to use it, we need to parse it into an integer.
 var currentNumber = parseInt(currentNumberString , 10);
 
+document.getElementById("addButton").addEventListener("click", increment);
+document.getElementById("subtractButton").addEventListener("click", decrement);
+
 function increment(){
     currentNumber = currentNumber + 1;
     currentNumberWrapper.innerHTML = currentNumber;
@@ -18,3 +21,5 @@ function decrement(){
     currentNumberWrapper.innerHTML = currentNumber;
     
 }
+
+
